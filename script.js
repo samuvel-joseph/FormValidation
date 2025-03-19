@@ -1,38 +1,40 @@
-document.getElementById('registration-form').addEventListener('submit', function(event) {
+document.getElementById('registrationForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form submission
-}
+
     // Clear previous error messages
-    document.getElementById('username-error').textContent = '';
-    document.getElementById('email-error').textContent = '';
-    document.getElementById('password-error').textContent = '';
+    document.getElementById('usernameError').textContent = '';
+    document.getElementById('emailError').textContent = '';
+    document.getElementById('passwordError').textContent = '';
 
     // Get form values
     const username = document.getElementById('username').value.trim();
     const email = document.getElementById('email').value.trim();
     const password = document.getElementById('password').value.trim();
 
-    let isValid = true;
+    let valid = true;
 
     // Validate username
-    if (username.length < 3) {
-        document.getElementById('username-error').textContent = 'Username must be at least 3 characters long.';
-        isValid = false;
+    if (username === '') {
+        document.getElementById('usernameError').textContent = 'Username is required.';
+        valid = false;
     }
 
     // Validate email
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        document.getElementById('email-error').textContent = 'Please enter a valid email address.';
-        isValid = false;
+    if (email === '' || !emailPattern.test(email)) {
+        document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+        valid = false;
     }
 
     // Validate password
     if (password.length < 6) {
-        document.getElementById('password-error').textContent = 'Password must be at least 6 characters long.';
-        isValid = false;
+        document.getElementById('passwordError').textContent = 'Password must be at least 6 characters long.';
+        valid = false;
     }
 
-    // If the form is valid, you can submit it or perform further actions
-    if (isValid) 
+    // If valid, you can submit the form or perform further actions
+    if (valid) {
         alert('Form submitted successfully!');
-        
+        // Here you can submit the form or perform other actions
+    }
+});
