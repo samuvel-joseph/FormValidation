@@ -8,22 +8,22 @@
 </head>
 <body>
     <div class="container">
-        <h1>Registration Form</h1>
-        <form id="registration-form">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" required>
-                <small class="error-message" id="username-error"></small>
+                <input type="text" id="username" name="username" required>
+                <span class="error" id="usernameError"></span>
             </div>
             <div class="form-group">
                 <label for="email">Email:</label>
-                <input type="email" id="email" required>
-                <small class="error-message" id="email-error"></small>
+                <input type="email" id="email" name="email" required>
+                <span class="error" id="emailError"></span>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" required>
-                <small class="error-message" id="password-error"></small>
+                <input type="password" id="password" name="password" required>
+                <span class="error" id="passwordError"></span>
             </div>
             <button type="submit">Register</button>
         </form>
